@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <p id="para"></p>
+    <div class="cal">
+    <button class="cal2 cal3">1</button>
+    <button class="cal2 cal3">2</button>
+    <button class="cal2 cal3">3</button>
+     <button class="cal2 ope ">*</button>
+    <button class="cal2 cal3">4</button>
+    <button class="cal2 cal3">5</button>
+    <button class="cal2 cal3">6</button>
+     <button class="cal2 ope">-</button>
+    <button class="cal2 cal3">7</button>
+    <button class="cal2 cal3">8</button>
+    <button class="cal2 cal3">9</button>
+    <button class="cal2 ope">+</button>
+    <button class="cal2 ope">.</button>
+    <button class="cal2 cal3">0</button>
+    <button class="single ope">C</button>
+    <button class="cal2 ope">/</button>
+    <button class="cal2 cal3">00</button>
+    <button class="cal2 ope">%</button>
+     <button class="equal ope">=</button>
+    <button class="clear ope">AC</button>
+    </div>
+    <script>
+        let buttons=document.querySelectorAll(".cal2")
+        let equal=document.querySelector(".equal")
+        let p=document.querySelector("#para")
+        let C=document.querySelector(".clear")
+        let single=document.querySelector(".single")
+for(let i of buttons){
+    i.addEventListener("click",calculator)
+}
+function calculator(event){
+   p.innerText = p.innerText + event.target.innerText;
+   p.innerHTML="<strong>"+p.innerText+"</strong>"
+   p.style.color="black"
+   p.style.fontSize="25px"
+ 
+}
+equal.addEventListener("click",function(){
+    let expression=p.innerText;
+    p.innerText=eval(expression)
+})
+C.addEventListener("click",function(){
+    p.innerText=""
+
+})
+single.addEventListener("click",function(){
+    p.innerText=p.innerText.slice(0,-1)
+})
+    </script>
+</body>
+
+</html>
